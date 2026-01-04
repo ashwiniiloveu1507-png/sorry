@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Forever ❤️</title>
+
+<style>
+:root{
+    --pink:#e91e63;
+    --soft:#fff0f5;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+html{ scroll-behavior:smooth; }
+
+body{
+    background:linear-gradient(to bottom,#ffd1dc,#c1f0f6);
+    overflow-x:hidden;
+    text-align:center;
+    color:#333;
+}
+
+/* Sections */
+section{
+    min-height:100vh;
+    padding:60px 20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
+}
+section.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+h1{
+    font-size:2.6rem;
+    color:var(--pink);
+    margin-bottom:20px;
+}
+
+p{
+    font-size:1.2rem;
+    max-width:800px;
+    line-height:1.9;
+    margin-bottom:15px;
+}
+
+/* Heartbeat text */
+.heartbeat{
+    animation:beat 1.6s infinite;
+}
+@keyframes beat{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.05);}
+}
+
+/* Counter */
+#counter{
+    font-size:1.6rem;
+    font-weight:bold;
+    color:var(--pink);
+    padding:25px;
+    background:rgba(255,255,255,0.6);
+    border-radius:25px;
+    box-shadow:0 0 35px rgba(233,30,99,0.4);
+}
+
+/* Buttons */
+.buttons{
+    margin-top:50px;
+    position:relative;
+    height:150px;
+}
+button{
+    padding:16px 36px;
+    font-size:1.15rem;
+    border-radius:40px;
+    border:none;
+    cursor:pointer;
+    position:absolute;
+    transition:.3s;
+}
+#yes{
+    background:var(--pink);
+    color:white;
+    left:50%;
+    transform:translateX(-140%);
+    box-shadow:0 0 25px rgba(233,30,99,.8);
+}
+#yes:hover{
+    transform:translateX(-140%) scale(1.1);
+}
+#no{
+    background:#444;
+    color:white;
+    left:50%;
+    transform:translateX(40%);
+}
+
+.hidden{ display:none; }
+
+/* Final */
+.final{ background:var(--soft); }
+.quote{
+    font-size:1.7rem;
+    color:var(--pink);
+    margin:15px 0;
+    animation:glow 2s infinite alternate;
+}
+@keyframes glow{
+    from{text-shadow:0 0 10px pink;}
+    to{text-shadow:0 0 25px deeppink;}
+}
+
+/* Falling hearts */
+.heart{
+    position:fixed;
+    top:-10px;
+    font-size:22px;
+    animation:fall linear forwards;
+    pointer-events:none;
+}
+@keyframes fall{
+    to{ transform:translateY(110vh); opacity:0; }
+}
+
+/* Heart explosion */
+.blast{
+    position:fixed;
+    font-size:26px;
+    animation:explode 1.4s ease-out forwards;
+}
+@keyframes explode{
+    to{
+        transform:translate(
+            calc(-150px + 300px * var(--x)),
+            calc(-150px + 300px * var(--y))
+        );
+        opacity:0;
+    }
+}
+
+/* Music overlay */
+#musicOverlay{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(to bottom,#ffd1dc,#c1f0f6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+#startBtn{
+    padding:18px 40px;
+    font-size:1.3rem;
+    border-radius:40px;
+    border:none;
+    background:var(--pink);
+    color:white;
+    cursor:pointer;
+    box-shadow:0 0 30px rgba(233,30,99,.8);
+}
+
+@media(max-width:600px){
+    h1{font-size:2.1rem;}
+    p{font-size:1.1rem;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+    <source src="love.mp3" type="audio/mpeg">
+</audio>
+
+<!-- START OVERLAY -->
+<div id="musicOverlay">
+    <button id="startBtn">Tap to Start Our Story ❤️</button>
+</div>
+
+<section>
+    <h1 class="heartbeat">I’m Sorry My Love ❤️</h1>
+    <p>I may fail sometimes, but my heart never fails to choose you.</p>
+    <p>If love had a face, it would look exactly like you.</p>
+        
+    <p>I am not perfect and ik that maybe I am not the right guy
+         but dont leave me make me the right guy.
+
+
+
+
+
+         Every second my heart beats it has your name. You known whenever I breathe I miss you . My friends says a person so mad in love can only be fool but they cant understand that i am mad in love because of you its nothing special in me it's you which make my every second feel special
+  
+    </p>
+</section>
+
+<section>
+    <h1>Our Beginning 💫</h1>
+    <p><strong>23 March 2024</strong> — the day my forever quietly started.</p>
+    <p class="heartbeat">Every heartbeat since then belongs to you.</p>
+</section>
+
+<section>
+    <h1>Time With You ⏳</h1>
+    <div id="counter">
+        <span id="months">0</span> Months •
+        <span id="days">0</span> Days<br><br>
+        <span id="hours">0</span> Hours •
+        <span id="minutes">0</span> Minutes •
+        <span id="seconds">0</span> Seconds
+    </div>
+</section>
+
+<section>
+    <h1>Why I Choose You 💕</h1>
+    <p>You are my peace.</p>
+    <p>You are my home.</p>
+    <p class="heartbeat">You are my forever.</p>
+</section>
+
+<section>
+    <h1>Will You Marry Me? 💍</h1>
+    <div class="buttons">
+        <button id="yes">YES ❤️</button>
+        <button id="no">NO 😜</button>
+    </div>
+</section>
+
+<section id="final" class="final hidden">
+    <h1>Forever Begins Now 💍❤️</h1>
+    <p class="quote">“I choose you. Always.”</p>
+    <p class="quote">“Every lifetime. Every universe.”</p>
+    <p class="quote">“This is us. Forever.”</p>
+</section>
+
+<script>
+/* MUSIC START */
+const music=document.getElementById("bgMusic");
+music.volume=0.6;
+startBtn.onclick=()=>{
+    music.play();
+    musicOverlay.style.display="none";
+};
+
+/* SCROLL FADE VOLUME */
+window.addEventListener("scroll",()=>{
+    let p=window.scrollY/(document.body.scrollHeight-innerHeight);
+    let v=0.6-p*0.4;
+    music.volume=Math.max(0.2,Math.min(0.6,v));
+});
+
+/* COUNTER */
+const startDate=new Date("2024-03-23T00:00:00");
+let run=true;
+function update(){
+    if(!run)return;
+    let d=new Date()-startDate;
+    let td=Math.floor(d/86400000);
+    months.innerText=Math.floor(td/30);
+    days.innerText=td%30;
+    d%=86400000;
+    hours.innerText=Math.floor(d/3600000);
+    d%=3600000;
+    minutes.innerText=Math.floor(d/60000);
+    seconds.innerText=Math.floor((d%60000)/1000);
+}
+setInterval(update,1000);update();
+
+/* SCROLL REVEAL */
+document.addEventListener("scroll",()=>{
+    document.querySelectorAll("section").forEach(s=>{
+        if(s.getBoundingClientRect().top<innerHeight-100)
+            s.classList.add("show");
+    });
+});
+
+/* NO BUTTON */
+no.onmouseover=()=>{
+    no.style.left=Math.random()*(innerWidth-150)+"px";
+    no.style.top=Math.random()*(innerHeight-150)+"px";
+};
+
+/* YES CLICK */
+yes.onclick=()=>{
+    run=false;
+    let vol=music.volume;
+    let up=setInterval(()=>{
+        if(vol>=1){clearInterval(up);music.volume=1;}
+        else{vol+=0.02;music.volume=vol;}
+    },150);
+
+    document.querySelectorAll("section").forEach(s=>s.classList.add("hidden"));
+    final.classList.remove("hidden");
+
+    for(let i=0;i<60;i++){
+        let h=document.createElement("div");
+        h.className="blast";
+        h.innerHTML="❤️";
+        h.style.left="50%";
+        h.style.top="50%";
+        h.style.setProperty("--x",Math.random());
+        h.style.setProperty("--y",Math.random());
+        document.body.appendChild(h);
+        setTimeout(()=>h.remove(),1500);
+    }
+};
+
+/* FALLING HEARTS */
+setInterval(()=>{
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=(Math.random()*3+2)+"s";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),5000);
+},250);
+</script>
+
+</body>
+</html>
